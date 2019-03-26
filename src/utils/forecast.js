@@ -10,7 +10,9 @@ const forceast = (latitude, longitude, callback) => {
             callback('Greska u pozivu APIaja !!!', undefined)
 
         } else {
-            callback(undefined, {forecast: response.body.hourly.summary});
+            callback(undefined, {forecast: `${response.body.daily.data[0].summary}
+            Highest temp:${response.body.daily.data[0].temperatureHigh}.
+            Lowest temp:${response.body.daily.data[0].temperatureLow}.`});
         }
     })
 }
